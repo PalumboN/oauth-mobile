@@ -1,9 +1,21 @@
 <ion-view view-title="Dashboard">
   <ion-content class="padding">
     <h2>Welcome to Login's</h2>
+
     <button class="button button-block button-positive", ng-click="ctrl.faceLogin()">
       Face Login
     </button>
-    {{ ctrl.status }}
+    {{ ctrl.faceStatus }}
+
+    <button class="button button-block button-positive", ng-click="ctrl.twitterLogin()">
+      Twitter Login
+    </button>
+    {{ ctrl.twitterStatus }}
+
+    <button class="button button-block button-positive", ng-click="ctrl.meliLogin()">
+      Meli Login
+    </button>
+    {{ ctrl.meliStatus }}
+
   </ion-content>
 </ion-view>

@@ -1,25 +1,42 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope, $cordovaOauth, $cordovaOauthUtility) {
+.controller('DashCtrl', function($scope, $cordovaOauth) {
 
-  console.log($cordovaOauth.facebook);
+  var initStatus = "Not logged"
 
-  function setStatus(status) {
-    ctrl.status = status
+  function setStatus(name, status) {
+    ctrl[name + "Status"] = status
   }
 
   var ctrl = {
-    status: "Waiting...",
+    faceStatus: initStatus,
+    twitterStatus: initStatus,
+    meliStatus: initStatus,
+
     faceLogin: function() {
-      setStatus("Opening face");
+      var status = "face";
+      setStatus(status, "Opening face");
       $cordovaOauth.facebook("984062531613818", ["public_profile"])
-      .then(function(result) { setStatus(JSON.stringify(result)); })
-      .catch(function(err) { setStatus(err); })
+      .then(function(result) { setStatus(status, JSON.stringify(result)); })
+      .catch(function(err) { setStatus(status, err); })
+    },
+    twitterLogin: function() {
+      var status = "twitter";
+      setStatus(status, "Opening twitter");
+      $cordovaOauth.twitter("8f0uhDIOjwpwZev4vi0r9EF4s", "43be9eMMvNMn31On4FjltLXihH5lwcFzql5XgGvRlqaEZrJCE6")
+      .then(function(result) { setStatus(status, JSON.stringify(result)); })
+      .catch(function(err) { setStatus(status, err); })
+    },
+    meliLogin: function() {
+      var status = "meli";
+      setStatus(status, "Opening meli");
+      $cordovaOauth.mercadolibre("6469001672768530")
+      .then(function(result) { setStatus(status, JSON.stringify(result)); })
+      .catch(function(err) { setStatus(status, err); })
     }
   }
 
   return ctrl;
-
 })
 
 .controller('ChatsCtrl', function($scope, Chats) {

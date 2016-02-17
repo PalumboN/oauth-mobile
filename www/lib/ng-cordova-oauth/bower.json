@@ -1,8 +1,11 @@
 {
-  "name": "ng-cordova-oauth",
-  "main": ["dist/ng-cordova-oauth.js", "dist/ng-cordova-oauth.min.js"],
-  "version": "0.2.3",
-  "homepage": "https://github.com/nraboy/ng-cordova-oauth",
+  "name": "ng-cordova-oauth-meli",
+  "main": [
+    "dist/ng-cordova-oauth.js",
+    "dist/ng-cordova-oauth.min.js"
+  ],
+  "version": "0.2.5",
+  "homepage": "https://github.com/PalumboN/ng-cordova-oauth",
   "authors": [
     "Nic Raboy <http://www.nraboy.com>"
   ],

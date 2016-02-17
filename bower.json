@@ -5,6 +5,6 @@
     "ionic": "driftyco/ionic-bower#1.2.4"
   },
   "dependencies": {
-    "ng-cordova-oauth": "^0.2.3"
+    "ng-cordova-oauth": "ng-cordova-oauth-meli#^0.2.5"
   }
 }
