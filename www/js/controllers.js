@@ -1,11 +1,25 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope) {
-  return {
+.controller('DashCtrl', function($scope, $cordovaOauth, $cordovaOauthUtility) {
+
+  console.log($cordovaOauth.facebook);
+
+  function setStatus(status) {
+    ctrl.status = status
+  }
+
+  var ctrl = {
+    status: "Waiting...",
     faceLogin: function() {
-      console.log("Hola");
+      setStatus("Opening face");
+      $cordovaOauth.facebook("984062531613818", ["public_profile"])
+      .then(function(result) { setStatus(JSON.stringify(result)); })
+      .catch(function(err) { setStatus(err); })
     }
   }
+
+  return ctrl;
+
 })
 
 .controller('ChatsCtrl', function($scope, Chats) {
